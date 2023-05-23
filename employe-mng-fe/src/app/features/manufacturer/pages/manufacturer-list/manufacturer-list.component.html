@@ -1,0 +1,101 @@
+<h2>Manufacturer list</h2>
+
+
+<div class="m-2">
+  <button type="button" class="btn btn-outline-primary" [routerLink]="['/manufacturer/manufacturer-form']">
+    <bi name="plus"></bi>Add Manufacturer
+  </button>
+</div>
+
+<table class="table table-strped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th sortable="id" (sort)="($event)">ID</th>
+      <th sortable="company_number" (sort)="($event)">Company number</th>
+      <th sortable="name" (sort)="($event)">Name</th>
+      <th sortable="tax_number" (sort)="($event)">Tax number</th>
+      <th sortable="city" (sort)="($event)">City</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let man of manufacturers; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ man.id }}</td>
+      <td>{{ man.company_number }}</td>
+      <td>{{ man.name }}</td>
+      <td>{{ man.tax_number }}</td>
+      <td>{{man.city.name}}</td>
+      <!-- <td>{{ cityMap.get(man.city.zip_code)?.name }}</td> -->
+      <td>
+        <button class="btn btn-outline-primary" [routerLink]="['/manufacturer/manufacturer-form', man.id]"
+          [queryParams]="{'page': currentPage.page, 'size': currentPage.size, 'orderBy': currentPage.orderBy, 'order': currentPage.order}">
+          <bi name="pencil"></bi>Edit
+        </button>
+
+        <button class="btn btn-outline-primary" (click)="onDetailsClick(man, manufacturerDetailsTemplate)">
+          <bi name="card-text"></bi><span class="btn-text-responsive">{{ 'COMMON.DETAILS' | translate }}</span>
+        </button>
+
+        <button class="btn btn-outline-danger" (click)="onDeleteClick(man)">
+          <bi name="trash"></bi><span class="btn-text-responsive" >{{ 'COMMON.DELETE' | translate }}</span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+
+  <ngb-pagination [collectionSize]="currentPage.totalItems" [pageSize]="currentPage.size" [(page)]="currentPage.page"
+    [boundaryLinks]="true" (pageChange)="loadManufacturers()">
+
+  </ngb-pagination>
+</div>
+<!-- 
+<div *ngIf="selectedManufacturer" >
+  <h4>Manufacturer details imbedded</h4>
+  <ng-container
+      *ngTemplateOutlet="manufacturerTemplate;context:{$implicit:  selectedManufacturer}">
+  >
+  </ng-container>
+
+</div> -->
+
+<!-- <ng-template #manufacturerTemplate let-manufacturer  >
+   context: {{manufacturer | json}}
+  <div class="modal-body">
+
+    <ul class="list-unstyled">
+      <li>id: {{ manufacturer?.id}}</li>
+      <li>Company_number: {{  manufacturer?.company_number }}</li>
+      <li>Name: {{  manufacturer?.name}}</li>
+      <li>Tax_number: {{ manufacturer?.tax_number }}</li>
+      <li>City-name: {{  manufacturer?.city.name}}</li>
+    </ul>
+</div>
+</ng-template> -->
+
+
+
+
+<ng-template #manufacturerDetailsTemplate let-modal>
+  <div class="modal-body">
+    <h4>Manufacturer details</h4>
+    <ul class="list-unstyled">
+      <li>id: {{ selectedManufacturer?.id}}</li>
+      <li>Company_number: {{ selectedManufacturer?.company_number }}</li>
+      <li>Name: {{ selectedManufacturer?.name}}</li>
+      <li>Tax_number: {{selectedManufacturer?.tax_number }}</li>
+      <li>City-name: {{ selectedManufacturer?.city}}</li>
+    </ul>
+    <div class="mt-2 d-flex flex-row-reverse">
+      <button (click)="modal.close('OK')">Ok</button>
+    </div>
+  </div>
+</ng-template>
+<!-- 
+<div class="d-flex">
+  <span *ngFor="let c of ( allCities$ | async)">{{c.name}} </span>
+</div>  -->

@@ -1,0 +1,31 @@
+<ul ngbNav  class="flex-no-wrap justify-content-between bg-light">
+  <li ngbNavItem  *ngIf="userAuthData.loggedUser" >
+    <a ngbNavLink routerLink="/city" >City</a>
+  </li>
+  <li ngbNavItem *ngIf="userAuthData.loggedUser" >
+    <a ngbNavLink routerLink="/manufacturer" >Manufacturer</a>
+  </li>
+
+  <li ngbNavItem *ngIf="userAuthData.loggedUser" class="flex-grow-1 flex-shirnk-1 text-center" >
+    <a ngbNavLink routerLink="/home" >Home</a>
+  </li>
+
+  <li ngbNavItem>
+    <div ngbDropdown class="d-inline-block mx-3">
+      <a  id="dropdownLanguages" ngbDropdownToggle>{{currentLanguage}}</a>
+      <div ngbDropdownMenu aria-labelledby="dropdownLanguages">
+        <button ngbDropdownItem (click)="onLanguegeChange('en')" >En</button>
+        <button ngbDropdownItem (click)="onLanguegeChange('it')" >It</button>
+      </div>
+    </div>
+
+    <div ngbDropdown class="d-inline-block mx-3" *ngIf="userAuthData.loggedUser">
+      <a  id="dropdownLanguages" ngbDropdownToggle>{{userFullName}}</a>
+      <div ngbDropdownMenu aria-labelledby="dropdownLanguages">
+        <button ngbDropdownItem ><bi name="gear"></bi>Settings</button>
+        <button ngbDropdownItem (click)="logoutUser()" ><bi name="power"></bi>Logout</button>
+      </div>
+    </div>
+  </li>
+
+</ul>

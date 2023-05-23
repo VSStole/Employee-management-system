@@ -1,0 +1,16 @@
+const db = require('../db/db');
+
+async function login(user) {
+    const rows = await db.query('SELECT * FROM user WHERE username = ?', [user.username]);
+    if (rows && rows.length > 0 && rows[0].password == user.password) {
+        rows[0].password = '';
+        return rows[0];
+    }
+    let message = 'Invalid user data!';
+    return { message };
+    return undefined;
+}
+
+module.exports = {
+    login
+}

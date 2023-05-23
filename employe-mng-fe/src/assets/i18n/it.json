@@ -1,0 +1,27 @@
+{
+    "APP_TITLE": "Applicazione Gestionale",
+    "COMMON": {
+      "EDIT": "Modifica",
+      "DETAILS": "Detaggli",
+      "DELETE": "Elimina",
+      "SAVE" : "Salva",
+      "ACTIONS" : "Azioni",
+      "CANCEL" : "Annulla",
+      "NAME" : "Nome"
+    },
+    "CITY" : {
+      "LIST_TITLE" : "Elenco citta",
+      "ZIP_CODE" : "Codice postale",
+      "NAME" : "Nome",
+      "SAVING_CITY_HEADER": "Saving city",
+      "SAVING_CITY_MESSAGE": "City saved successfully"
+    },
+    "MANUFACTURER": {
+      "COMPANY_NUMBER": "Numero azienda",
+       "TAX_NUMBER": "Codice fiscale",
+       "CITY": "Città",
+       "SAVING_MANUFACTURER_HEADER": "Salvataggio produttore",
+       "SAVING_MANUFACTURER_MESSAGE": "Produttore salvato con successo"
+    }
+  }
+  

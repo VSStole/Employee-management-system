@@ -1,0 +1,29 @@
+{
+    "APP_TITLE": "Management Application",
+    "COMMON": {
+      "EDIT": "Edit",
+      "DETAILS": "Details",
+      "DELETE": "Delete",
+      "SAVE" : "Save",
+      "ACTIONS" : "Actions",
+      "CANCEL" : "Cancel",
+      "NAME" : "Name"
+    },
+    "CITY" : {
+      "LIST_TITLE" : "City list",
+      "ZIP_CODE" : "Zip code",
+      "NAME" : "Name",
+      "SAVING_CITY_HEADER": "Saving city",
+      "SAVING_CITY_MESSAGE": "City saved successfully"
+  
+    },
+    "MANUFACTURER": {
+      "COMPANY_NUMBER": "Company number",
+      "TAX_NUMBER": "Tax number",
+      "CITY": "City",
+      "SAVING_MANUFACTURER_HEADER": "Saving manufacturer",
+      "SAVING_MANUFACTURER_MESSAGE": "Manufacturer saved successfully"
+    }
+  
+  }
+  
